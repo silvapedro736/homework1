@@ -1,0 +1,480 @@
+\documentclass{tufte-handout}
+
+\title{Python 101}
+
+\author[The Academy]{Pedro Silva}
+
+%\date{28 March 2010} % without \date command, current date is supplied
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+  
+  
+  
+    %MADNESS
+  
+  \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{mathtools}% http://ctan.org/pkg/mathtools
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{units}% To use \nicefrac
+\usepackage{cancel}% To use \cancel
+%\usepackage{physymb}%To use r
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgf,tikz}%To draw 
+\usepackage{pgfplots}%To draw 
+\usetikzlibrary{shapes,arrows}%To draw 
+\usetikzlibrary{patterns,fadings}
+ \usetikzlibrary{decorations.pathreplacing}%To draw curly braces 
+ \usetikzlibrary{snakes}%To draw 
+ \usetikzlibrary{spy}%To do zoom-in
+ \usepackage{setspace}%Set margins and such
+ %\usepackage{3dplot}%To draw in 3D
+\usepackage{framed}%To get shade behind text
+
+
+
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}%setting shade color
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+  
+  
+
+  
+  
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\begin{document}
+
+\maketitle % Print the title section
+
+\section*{Introduction}
+
+In this assignment I created a program that contains four different functions. These functions are, check if a number is odd or composite, check if a number is prime or not, convert numbers to binary, and, a physics simulator. To create this program I used the Python 2.7.10 programming language.
+
+Python was created in the 1980s by Guido van Rossum but it was only released in 1989. The main concepts of the language are:
+
+Beautiful is better than ugly.
+
+Explicit is better than implicit.
+
+Simple is better than complex.
+
+Complex is better than complicated.
+
+Flat is better than nested.
+
+Sparse is better than dense.
+
+Readability counts.
+
+Special cases aren't special enough to break the rules.
+
+Although practicality beats purity.
+
+Errors should never pass silently.
+
+Unless explicitly silenced.
+
+The python language has been used over the years to create many of todays most used programs, for example: Dropbox. Python also has influenced some of todays most used programming languages, for example JavaScript, Ruby and Swift.
+
+
+
+Now a days there are three versions of python available; Python, Phython 2. , and, Python 3000 (py3k)  
+
+\normalsize
+
+\vspace{1cm}
+
+\vspace{1cm}
+
+
+\newpage
+\section{Main Menu - Program Code}
+
+\marginnote[40pt]{
+These lines of code create the main menu and imports all libraries necessary to create the program.
+
+In the first line we see the code "import time", what this does is import the "time" library. I use this library later on in the program to create pauses.
+
+I then create a boolean called "MainMenu" and i set it to True. I use this boolean to create a while loop for the Main Menu.
+
+On the next four lines I set 4 booleans: "odd", "prime", "binary", "physics". I use these booleans later on the program to create multiple while loops.
+
+Through the next few lines of code I print a title saying "Welcome to Pyth - By: Pedro"
+
+After I print the title I use the library time for the first time. I type "time.sleep(1)". I type "time" to call the library, then i type ".sleep" to call the sleep function, then I type "(1)", what this does is it defines for how long I want the program to sleep.
+
+After this, I print the options of what the user can do in this program.
+
+To finish off the Main Menu part I input the line of code "program = raw\_input()". What this does is it creates a variable called program with what ever choice of program the user decides to input.
+}
+
+\begin{framed}
+\begin{verbatim}
+import time
+
+MainMenu = True
+while MainMenu:
+
+    odd = True
+    prime = True
+    binary = True
+    physics = True
+
+
+    print "-----------------"
+    print "-----Welcome-----"
+    print "-------to--------"
+    print "------Pyth-------"
+    print "-----------------"
+    print "-------By:-------"
+    print "------Pedro------"
+    print "-----------------"
+
+    time.sleep(1)
+    
+    print "Programs:"
+    print "         Odd Numbers[1]"
+    print "         Prime Numbers[2]"
+    print "         Number to Binary[3]"
+    print "         Physics Simulator[4]"
+    print "         Exit[ext]"
+    program = raw_input()
+\end{verbatim}
+\end{framed}
+
+\marginnote[40pt]{This is the output of the lines of code above.}
+
+\begin{shaded}
+\begin{verbatim}
+-----------------
+-----Welcome-----
+-------to--------
+------Pyth-------
+-----------------
+-------By:-------
+------Pedro------
+-----------------
+Programs:
+         Odd Numbers[1]
+         Prime Numbers[2]
+         Number to Binary[3]
+         Physics Simulator[4]
+         Exit[ext]
+\end{verbatim}
+\end{shaded}
+
+\vspace{1cm}
+
+\newpage
+
+\section{Odd Numbers - Program Code}
+
+\marginnote[40pt]{
+These lines of code is the part that runs the "Odd Numbers" program. 
+
+In the first line we see "if program == "1":", what this does is it creates a if statement that says: If the variable program(defined in the main menu) is equal to one run these lines of code.
+
+On the next few lines of code we see almost the same thing as we had in the Main Menu. We see the print function and the time.sleep() function.
+
+I then create a new while loop, using one of the booleans created before, specific for the "Odd Number" program. The aim with this loop is to restart the "Odd Numbers" program after it finishes.
+
+This is the point of the code that the "Odd Numbers" program actually begins.
+It starts off by asking the user what number he wants to check if its odd or pair. To do this I used the "raw\_input()" function. 
+
+I then check if the user input is "ext".
+If it is ext ill turn the odd boolean to False and Ill break the while loop. Therefore taking the user to the Main Menu.
+if the user input is not ext Ill continue to the rest of the "Odd Numbers" program.
+
+To start off the "Odd Numbers" program I turn the string that I got as an user input and I make it into a float. To do this I do: "n = float(n)" where n is the name of the variable where the string is saved. 
+
+After turning the string into a float I make an If statement. In the If statement I check if when the number entered by the user is mod by 2 if the answer is 1. If the If statement comes out true I print that the Number is Odd. If the If statement comes out False I continue to another If statement. In this if statement I check if the number entered by the user mod 2 is equal to 0. If this comes out True I print that the number is composite.                 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+}
+
+\begin{framed}
+\begin{verbatim}
+
+if program == "1":
+        print "Loading..."
+        time.sleep(.7)
+        print "---------------"
+        print "--Odd Numbers--"
+        print "---------------"
+        time.sleep(1)
+        while odd:
+            print "Enter Number:",
+            n = raw_input()
+            if n == "ext":
+                odd = False
+                break
+            n = float(n)
+            if n % 2 == 1:
+               print n,
+               print "is an odd number."
+            if n % 2 == 0:
+                print n,
+                print " is a composite number."
+                
+\end{verbatim}
+\end{framed}
+
+\marginnote[40pt]{This is an example of what happens when you run the "Odd Numbers" program with the number 5.}
+
+\vspace{4.5cm}
+
+\begin{shaded}
+\begin{verbatim}
+Loading...
+---------------
+--Odd Numbers--
+---------------
+Enter Number: 5
+5.0 is an odd number.
+\end{verbatim}
+\end{shaded}
+
+\vspace{1cm}
+
+\newpage
+
+
+\section{Prime Numbers - Program Code}
+
+\marginnote[40pt]{
+These lines of code run the "Prime Numbers" program.
+
+The "Prime Numbers" program has many similar functions to the ones I used in the "Odd Numbers" program. We may notice I use the same concepts to start off all programs. 
+
+We only begin to see a difference when we get to the first If statement. I do an If not statement instead of the casual If statement. I do this to check if the number is not pair, because if the number is pair it means that it can be divided by 2 therefore making a non-prime number.
+
+If the number is not pair I then divide it by 3 and I subtract 1 off the answer util the number is in between 0 and 1.99. I do this to check if when it is divided there are any remainders. If there are no remainders that means that the number can be divided by 3, therefore making a non-prime number. But, if the result is a number in between 0.01 and 0.99 that means that the number can not be divided by 3 and still give a full number as an answer, therefore making it a prime number.
+                 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+}
+
+\begin{framed}
+\begin{verbatim}
+
+if program == "2":
+        print "Loading..."
+        time.sleep(.7)
+        print "-----------------"
+        print "--Prime Numbers--"
+        print "-----------------"
+        time.sleep(1)
+        while prime:
+            print "Enter Number:",
+            n = raw_input()
+            if not n == "2":
+                if n == "ext":
+                    prime = False
+                    break
+                n = float(n)
+                if n % 2 == 1:
+                    y = n / 3.0
+                    while y > 0:
+                        y = y - 1
+                    if not y == 0:
+                       print n,
+                       print " is not a prime number."
+                    if y == 0:
+                        print n,
+                        print " is a prime number."
+                if n % 2 == 0:
+                    print n,
+                    print " is not a prime number."
+            if n == "1":
+                print n,
+                print " is not a prime number."
+            if n == "2":
+                print n,
+                print "is a prime number."
+                
+\end{verbatim}
+\end{framed}
+
+\marginnote[40pt]{This is an example of what happens when you run the "Prime Numbers" program with the number 57.}
+
+\begin{shaded}
+\begin{verbatim}
+Loading...
+-----------------
+--Prime Numbers--
+-----------------
+Enter Number: 57
+57.0  is a prime number.
+\end{verbatim}
+\end{shaded}
+
+\vspace{1cm}
+
+\newpage
+
+\section{Number to Binary - Program Code}
+
+\marginnote[40pt]{      
+These lines of code make up the "Number to Binary" program.
+
+Like in the other programs I start off the same way.  Then I turn the sting into an integer and I create a variable using the following function: bin("variable name")[2:]
+
+I then print the result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+}
+
+\begin{framed}
+\begin{verbatim}
+
+if program == "3":
+        print "Loading..."
+        time.sleep(.7)
+        print "------------------"
+        print "-Number to Binary-"
+        print "------------------"
+        time.sleep(1)
+        while binary:
+            equ = "="
+            print "Enter number to convert:"
+            s = raw_input()
+            if s == "ext":
+                binary = False
+                break
+
+            v = int(s) 
+
+            bina = bin(v)[2:]  
+
+            print v,
+            print equ,
+            print bina
+                
+\end{verbatim}
+\end{framed}
+
+\marginnote[40pt]{This is an example of what happens when you run the "Number to Binary" program with the number 69.}
+
+\begin{shaded}
+\begin{verbatim}
+Loading...
+------------------
+-Number to Binary-
+------------------
+Enter number to convert: 69
+69 = 1000101
+\end{verbatim}
+\end{shaded}
+
+\vspace{1cm}
+
+\newpage
+
+\section{Physics Simulator - Program Code}
+
+\marginnote[40pt]{      
+These lines of code make the "Physics Simulator" program.
+
+Just like in all other programs I start off the same way.
+
+I then ask the User to input what height is the simulation starting at. After he inputs that i check to see if he inputed "ext", If he did I go back to the main menu. If he did not input ext I ask the user to input the force applied to the object. I then once more check to see if he inputed "ext". After that I set a few variables to use in the simulation.
+
+After that I begin a while loop that will be used to simulate. I make the while loop run until the height of the object reaches -0.000000001. I do this because then Im allowed to begin my simulation at 0 and still get a very precise conclusion.
+
+For every instance the while loop runs I add to the time, I add to the velocity and I add to the height.
+
+When the while loop reaches -0.000000001 I print the theoretical time taken for the object to fly up, come down and hit the ground. I print the final velocity when the object hits the ground. And, I print the max height the object reached during the simulation.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+}
+
+\begin{framed}
+\begin{verbatim}
+
+if program == "4":
+        print "Loading..."
+        time.sleep(.7)
+        print "-------------------"
+        print "-Physics Simulator-"
+        print "-------------------"
+        time.sleep(1)
+        while physics:
+            print "What height is the start(meters): " ,
+            y0 = raw_input()
+
+            if y0 == "ext":
+                physics = False
+                break
+
+            print "What is the force being applied 
+            at the start: ",
+            v0 = raw_input()
+
+            if v0 == "ext":
+                physics = False
+                break
+
+            a = -9.8
+            dt = 0.01
+            t = 0
+            v = float(v0)
+            y = float(y0)
+            ymax = 0.0
+
+            while y > -0.0000000001:
+                t = t + dt
+                v = v + a * dt
+                y = y + v * dt
+
+                if y > ymax:
+                    ymax = y
+
+            print "Time taken: " + str(t) + "s"
+            print "Final velocity:" + str(v) + " m/s"
+            print "Max Height: " + str(ymax) + " m"
+                
+\end{verbatim}
+\end{framed}
+
+\marginnote[40pt]{This is an example of what happens when you run the "Physics Simulator" program with the object starting at the ground(0) and a force of 67 Newtons being applied to it.}
+
+\begin{shaded}
+\begin{verbatim}
+Loading...
+-------------------
+-Physics Simulator-
+-------------------
+What height is the start(meters):  0
+What is the force being applied at the start:  67
+Time taken: 13.67s
+Final velocity:-66.966 m/s
+Max Height: 228.69572 m
+\end{verbatim}
+\end{shaded}
+
+\vspace{1cm}
+
+\bibliography{sample-handout}
+\bibliographystyle{plainnat}
+
+
+
+\end{document}
